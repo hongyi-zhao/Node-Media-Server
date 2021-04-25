@@ -27,6 +27,20 @@ const config = {
     key: './privatekey.pem',
     cert: './certificate.pem',
   },
+  trans: {
+    ffmpeg: '/usr/local/bin/ffmpeg',
+    tasks: [
+      {
+        app: 'live', // or other 
+        hls: true,
+        hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]',
+        dash: true,
+        dashFlags: '[f=dash:window_size=3:extra_window_size=5]',
+        "websocket-flv": true
+      }
+      ]
+  },
+
   auth: {
     api: true,
     api_user: 'admin',
